@@ -1,0 +1,81 @@
+------------------------------------------------------------------------------------------------------------------------
+3 вида alert
+
+alert = browser.switch_to.alert
+alert.accept()
+
+confirm = browser.switch_to.alert
+confirm.accept()
+или 
+confirm.dismiss()
+
+prompt = browser.switch_to.alert
+prompt.send_keys("My answer")
+prompt.accept()
+
+------------------------------------------------------------------------------------------------------------------------
+ексепшен
+
+NoSuchElementException - нет такого вообще
+StaleElementReferenceException -  был элемент да сплыл
+ElementNotVisibleException - видишь элемент? И я не вижу, а он есть.
+
+------------------------------------------------------------------------------------------------------------------------
+Если нам надо дождаться появления элемента (проверяет каждые 0.5 секунд)
+метод 
+Implicity_wait() 
+
+browser = webdriver.Chrome()
+# говорим WebDriver искать каждый элемент в течение 5 секунд
+browser.implicitly_wait(5)
+
+
+------------------------------------------------------------------------------------------------------------------------
+Если нам надо дождаться, пока кнопка станет кликабельной
+
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC	
+
+button = WebDriverWait(browser, 5).until(
+        EC.element_to_be_clickable((By.ID, "verify"))
+    )
+
+def until (до тех пор) - функция, в которую передается правило ожидания, элемент, а также значение, по которому мы будем искать элемент.
+
+негативное правило until_not ( например если мы хотим проверить, что кнопка стала неактивной после отправки) 
+# говорим Selenium проверять в течение 5 секунд пока кнопка станет неактивной
+button = WebDriverWait(browser, 5).until_not(
+        EC.element_to_be_clickable((By.ID, "verify"))
+    )
+
+В модуле expected_conditions есть много других правил:
+
+title_is
+title_contains
+presence_of_element_located
+visibility_of_element_located
+visibility_of
+presence_of_all_elements_located
+text_to_be_present_in_element
+text_to_be_present_in_element_value
+frame_to_be_available_and_switch_to_it
+invisibility_of_element_located
+element_to_be_clickable
+staleness_of
+element_to_be_selected
+element_located_to_be_selected
+element_selection_state_to_be
+element_located_selection_state_to_be
+alert_is_present
+
+
+Структура записи для ожидания текста - 
+price = WebDriverWait(browser, 12).until(expected_conditions.text_to_be_present_in_element((By.ID, 'price'), '$100'))
+
+
+
+
+
+
+
+
