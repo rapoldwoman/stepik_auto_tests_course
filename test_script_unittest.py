@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 import unittest
 
 class Test_class_name(unittest.TestCase):
-    def test1url(self):
+    def test_1url(self):
         browser = webdriver.Chrome()
         browser.get('http://suninjuly.github.io/registration1.html')
 
@@ -23,7 +23,7 @@ class Test_class_name(unittest.TestCase):
         self.assertEqual('successfully' in browser.find_element(By.CSS_SELECTOR, ".container").text)
 
 
-    def test2url(self):
+    def test_2url(self):
         browser = webdriver.Chrome()
         browser.get('http://suninjuly.github.io/registration2.html')
 
