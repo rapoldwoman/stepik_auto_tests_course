@@ -73,7 +73,19 @@ alert_is_present
 price = WebDriverWait(browser, 12).until(expected_conditions.text_to_be_present_in_element((By.ID, 'price'), '$100'))
 
 
+------------------------------------------------------------------------------------------------------------------------
+pip freeze > requirements.txt
+Эта команда сохранит все версии пакетов в специальный файл requirements.txt.
+------------------------------------------------------------------------------------------------------------------------
 
+pytest scripts/selenium_scripts
+# найти все тесты в директории scripts/selenium_scripts
+
+pytest test_user_interface.py
+# найти и выполнить все тесты в файле 
+
+pytest scripts/drafts.py::test_register_new_user_parametrized
+# найти тест с именем test_register_new_user_parametrized в указанном файле в указанной директории и выполнить 
 
 
 
