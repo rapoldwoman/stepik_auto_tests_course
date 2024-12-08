@@ -13,7 +13,7 @@ def browser():
     print("\nend browser for test..")
     browser.quit()
 
-class TestMainPage1():
+class TestMainPage1:
 
     def test_guest_should_see_login_link(self, browser):
         browser.get(link)
@@ -23,7 +23,7 @@ class TestMainPage1():
         browser.get(link)
         browser.find_element(By.CSS_SELECTOR, ".basket-mini .btn-group > a")
 
-    @pytest.mark.xfail
+    @pytest.mark.xfail(reason = "фиксим пока что")
     def test_guest_should_see_search_button_on_the_main_page(self, browser):
         browser.get(link)
         browser.find_elements(By.CSS_SELECTOR, "button.favorite")
