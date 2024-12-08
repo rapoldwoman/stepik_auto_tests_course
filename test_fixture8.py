@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 
 link = "http://selenium1py.pythonanywhere.com/"
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="class")
 def browser():
     print("\nstart browser for test..")
     browser = webdriver.Chrome()
@@ -15,11 +15,9 @@ def browser():
 
 class TestMainPage1():
 
-
     def test_guest_should_see_login_link(self, browser):
         browser.get(link)
         browser.find_element(By.CSS_SELECTOR, "#login_link")
-
 
     def test_guest_should_see_login_link(self, browser):
         browser.get(link)
