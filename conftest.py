@@ -14,5 +14,6 @@ def browser():
 
 @pytest.fixture(scope="function")
 def time_total():
+    # для проверки времени использовать https://time.is/ru/
     answer = math.log(int(time.time() + 0.4))
     return answer
