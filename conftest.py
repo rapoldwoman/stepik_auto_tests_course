@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
 import time
+import math
 
 @pytest.fixture(scope="function")
 def browser():
@@ -9,5 +10,9 @@ def browser():
     browser.implicitly_wait(10)
     yield browser
     print("\nend browser for test..")
-    time.sleep(5)
     browser.quit()
+
+@pytest.fixture(scope="function")
+def time_total():
+    answer = math.log(int(time.time() + 0.4))
+    return answer
